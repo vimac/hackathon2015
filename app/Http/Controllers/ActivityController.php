@@ -73,4 +73,9 @@ class ActivityController extends Controller
         }
     }
 
+
+    public function getActivityUser(Request $req) {
+
+
+    }
 }
