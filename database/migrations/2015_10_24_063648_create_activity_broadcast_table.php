@@ -29,6 +29,6 @@ class CreateActivityBroadcastTable extends Migration
      */
     public function down()
     {
-        Schema::drop('activity_boradcast');
+        Schema::drop('activity_broadcast');
     }
 }
