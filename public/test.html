@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="white" />
+    <meta content="telephone=no,email=no" name="format-detection"/>
+    <meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes"/>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById("buttonQR").addEventListener("click", function(event) {
+                window.webkit.messageHandlers.bridge.postMessage({request: "QRScanner", callback: ""});
+            });
+            document.getElementById("buttonGPS").addEventListener("click", function(event) {
+                window.webkit.messageHandlers.bridge.postMessage({request: "QRScanner", callback: ""});
+            });
+
+            window.callback = function(source, result) {
+                switch(source) {
+                    case "QRScanner":
+                        document.getElementById("buttonQR").innerHTML = result
+                        break;
+                    case "GPS":
+                        document.getElementById("buttonGPS").innerHTML = result
+                        break;
+                }
+            };
+//            var button = document.getElementById("buttonQR");
+//            button.addEventListener('click', function() {
+//                //window.location.href = "hackathon://test";
+//                alert(1234);
+//                alert(window.webkit);
+//            });
+        });
+    </script>
+</head>
+<body>
+<button id="buttonQR" style="display:block; height: 100px; width: 100%">QR</button>
+<button id="buttonGPS" style="display:block; height: 100px; width: 100%">GPS</button>
+
+</body>
+</html>

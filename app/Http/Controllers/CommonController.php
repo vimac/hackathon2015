@@ -12,6 +12,7 @@ namespace App\Http\Controllers;
 
 use Endroid\QrCode\QrCode;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class CommonController extends Controller{
 
@@ -25,11 +26,11 @@ class CommonController extends Controller{
             ->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0))
             ->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0))
             ->setLabel('My label')
-            ->setLabelFontSize(16)
-            ->render()
-        ;
-        return $qrCode;
+            ->setLabelFontSize(16);
 
+        $response = new Response($qrCode->get(), 200);
+        $response->header('content-type', 'image/png');
+        return $response;
     }
 
 }
