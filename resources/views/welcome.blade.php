@@ -1,45 +1,19 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layouts.master')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('title', 'Hello World')
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('sidebar')
+    @parent
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+    <p>边栏</p>
+@stop
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
+@section('content')
+    @foreach ($posts as $post)
+        <div>
+            <p>post id: {{ $post->id }}</p>
+            <p>post title: {{ $post->title}}</p>
+            <p>post content: {{ $post->id }}</p>
         </div>
-    </body>
-</html>
+    @endforeach
+@stop

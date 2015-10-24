@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+use App\Model\Post;
+
+Route::controller('', IndexController::class);
