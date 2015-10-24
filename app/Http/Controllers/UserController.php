@@ -12,17 +12,17 @@ class UserController extends Controller
     {
         $user = $this->fetchUserData();
         if (!$user) {
-            $phone = $req->get('phone');
+            $telephone = $req->get('telephone');
             $name = $req->get('name');
 
-            if (empty($phone)) {
+            if (empty($telephone)) {
                 return response()->json([
                     'code' => 403,
                     'msg' => '手机号不能为空',
                 ]);
             }
 
-            $user = User::where('telephone', $phone)->first();
+            $user = User::where('telephone', $telephone)->first();
 
             if (!$user) {
                 if (empty($name)) {
@@ -33,7 +33,7 @@ class UserController extends Controller
                 }
                 $user = User::create([
                     'name' => $name,
-                    'telephone' => $phone,
+                    'telephone' => $telephone,
                     'token' => uniqid('', true)
                 ]);
             }
@@ -45,6 +45,33 @@ class UserController extends Controller
                     'data' => []
                 ])
                 ->withCookie('token', $user->token);
+    }
+
+    public function postLogout()
+    {
+        return response()->json()->withCookie('token');
+    }
+
+    public function getTelephone(Request $req)
+    {
+        $telephone = $req->get('telephone');
+
+        $user = User::where('telephone', $telephone)->first();
+        if ($user) {
+            return response()
+                ->json([
+                    'code' => 0,
+                    'msg' => 'success',
+                    'data' => ['signed' => 1]
+                ]);
+        } else {
+            return response()
+                ->json([
+                    'code' => 0,
+                    'msg' => 'success',
+                    'data' => ['signed' => 0]
+                ]);
+        }
     }
 
 }
