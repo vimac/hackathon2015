@@ -14,6 +14,9 @@
 
 use App\Model\Activity;
 
+
+Route::controller('location', LocationController::class);
 Route::controller('user', UserController::class);
 Route::controller('activity', ActivityController::class);
 Route::controller('', IndexController::class); //默认的必须放在最后一行
+
