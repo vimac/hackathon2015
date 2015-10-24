@@ -12,6 +12,6 @@
 */
 
 
-use App\Model\Post;
+use App\Model\Activity;
 
 Route::controller('', IndexController::class);

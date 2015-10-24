@@ -9,13 +9,13 @@
 namespace App\Http\Controllers;
 
 
-use App\Model\Post;
+use App\Model\Activity;
 
 class IndexController extends Controller
 {
 
     public function getIndex() {
-        $posts = Post::all();
+        $posts = Activity::all();
 
         return view('welcome', ["posts" => $posts]);
     }
