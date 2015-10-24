@@ -123,4 +123,19 @@ class ActivityController extends Controller
         ]);
 
     }
+
+    /**
+     * 根据活动获取用户列表
+     */
+    public function getUserlist(Request $req) {
+        $activityId = $req->get('activity_id');
+        $status = $req->get('status');
+
+        $userActivity = UserActivity::where(['status' => $status, 'activity_id' => $activityId])->get()->toArray();
+        return response()->json([
+            'code' => 0,
+            'msg' => 'ok',
+            'data' => $userActivity
+        ]);
+    }
 }
