@@ -76,7 +76,6 @@ class ActivityController extends Controller
         $user = $this->fetchUserData();
         $activityId = $req->get('activity_id');
         $phone = $req->get('phone');
-
         if ($user) {
             $userId = $user->id;
         } else {
@@ -88,29 +87,28 @@ class ActivityController extends Controller
                 ]);
             }
             $user = User::where('telephone', $phone)->first();
-            $userId = $user->id;
             if (!$user) {
                 return response() ->json([
                     'code' => 0,
                     'msg' => 'ok',
-                    'data' => false
+                    'data' => ['join' => false]
                 ]);
             }
-            $userActivity = UserActivity::where(['user_id' => $userId, 'activity_id' => $activityId])->first();
-            if ($userActivity) {
-                return response() ->json([
-                    'code' => 0,
-                    'msg' => 'ok',
-                    'data' => true
-                ]);
-            } else {
-                return response() ->json([
-                    'code' => 0,
-                    'msg' => 'ok',
-                    'data' => false
-                ]);
-            }
-
+            $userId = $user->id;
+        }
+        $userActivity = UserActivity::where(['user_id' => $userId, 'activity_id' => $activityId])->first();
+        if ($userActivity) {
+            return response() ->json([
+                'code' => 0,
+                'msg' => 'ok',
+                'data' => ['join' => true]
+            ]);
+        } else {
+            return response() ->json([
+                'code' => 0,
+                'msg' => 'ok',
+                'data' => ['join' => false]
+            ]);
         }
 
     }
