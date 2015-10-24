@@ -19,5 +19,5 @@ Route::controller('common', CommonController::class);
 Route::controller('location', LocationController::class);
 Route::controller('user', UserController::class);
 Route::controller('activity', ActivityController::class);
-Route::controller('', IndexController::class); //默认的必须放在最后一行
+Route::controller('index', IndexController::class); //默认的必须放在最后一行
 

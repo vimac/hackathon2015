@@ -14,8 +14,6 @@ class ActivityController extends Controller
     public function postJoin(Request $req)
     {
         $activityId = $req->get('activity_id');
-        $telephone = $req->get('telephone');
-        $name = $req->get('name');
 
         $user = $this->fetchUserData();
 
@@ -73,6 +71,49 @@ class ActivityController extends Controller
         }
     }
 
+
+    public function getIsjoin(Request $req) {
+        $user = $this->fetchUserData();
+        $activityId = $req->get('activity_id');
+        $phone = $req->get('phone');
+
+        if ($user) {
+            $userId = $user->id;
+        } else {
+            if (!$phone) {
+                return response() ->json([
+                    'code' => 403,
+                    'msg' => '手机号为空',
+                    'data' => []
+                ]);
+            }
+            $user = User::where('telephone', $phone)->first();
+            $userId = $user->id;
+            if (!$user) {
+                return response() ->json([
+                    'code' => 0,
+                    'msg' => 'ok',
+                    'data' => false
+                ]);
+            }
+            $userActivity = UserActivity::where(['user_id' => $userId, 'activity_id' => $activityId])->first();
+            if ($userActivity) {
+                return response() ->json([
+                    'code' => 0,
+                    'msg' => 'ok',
+                    'data' => true
+                ]);
+            } else {
+                return response() ->json([
+                    'code' => 0,
+                    'msg' => 'ok',
+                    'data' => false
+                ]);
+            }
+
+        }
+
+    }
 
     /**
      * 签到

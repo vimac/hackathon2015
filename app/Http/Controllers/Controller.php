@@ -15,7 +15,7 @@ abstract class Controller extends BaseController
     protected function fetchUserData()
     {
         $token = request()->cookie('token');
-        $user = User::where('token', '562b4ff3bc1485.91214040')->first();
+        $user = User::where('token', $token)->first();
         return $user;
     }
 

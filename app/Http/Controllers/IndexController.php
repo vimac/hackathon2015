@@ -10,12 +10,17 @@ namespace App\Http\Controllers;
 
 
 use App\Model\Activity;
+use Illuminate\Support\Facades\Redirect;
 
 class IndexController extends Controller
 {
 
-    public function getIndex() {
-        return view('welcome');
+//    public function getIndex() {
+//        return view('welcome');
+//    }
+
+    public function getWel() {
+        return view('index');
     }
 
 
