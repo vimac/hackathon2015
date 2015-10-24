@@ -7,3 +7,4 @@ Homestead.json
 *.lock
 *.iml
 composer.phar
+test
