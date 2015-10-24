@@ -34,4 +34,14 @@ class Activity extends Model
      */
     protected $hidden = [];
 
+    public function users()
+    {
+        $this->belongsToMany('users');
+    }
+
+    public function broadcasts()
+    {
+        $this->hasMany('activity_broadcast');
+    }
+
 }

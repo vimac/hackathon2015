@@ -1,10 +1,17 @@
 <?php
+/**
+ * Created by IntelliJ IDEA.
+ * User: mac
+ * Date: 10/24/15
+ * Time: 15:05
+ */
 
 namespace App\Model;
 
+
 use Illuminate\Database\Eloquent\Model;
 
-class UserLocationHistory extends Model
+class UserActivity extends Model
 {
 
     /**
@@ -12,21 +19,20 @@ class UserLocationHistory extends Model
      *
      * @var string
      */
-    protected $table = 'user_location_history';
+    protected $table = 'user_activity';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name', 'phone'];
+    protected $fillable = [];
 
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = ['remember_token'];
-
+    protected $hidden = [];
 
 }

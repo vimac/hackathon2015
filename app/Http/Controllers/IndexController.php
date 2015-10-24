@@ -15,9 +15,8 @@ class IndexController extends Controller
 {
 
     public function getIndex() {
-        $posts = Activity::all();
 
-        return view('welcome', ["posts" => $posts]);
+        return view('welcome');
     }
 
 
