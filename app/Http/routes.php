@@ -15,6 +15,7 @@
 use App\Model\Activity;
 
 
+Route::controller('common', CommonController::class);
 Route::controller('location', LocationController::class);
 Route::controller('user', UserController::class);
 Route::controller('activity', ActivityController::class);
