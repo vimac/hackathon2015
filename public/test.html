@@ -9,10 +9,13 @@
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById("buttonQR").addEventListener("click", function(event) {
-                window.webkit.messageHandlers.bridge.postMessage({request: "QRScanner", callback: ""});
+                window.webkit.messageHandlers.bridge.postMessage({request: "QRScanner"});
             });
             document.getElementById("buttonGPS").addEventListener("click", function(event) {
-                window.webkit.messageHandlers.bridge.postMessage({request: "QRScanner", callback: ""});
+                window.webkit.messageHandlers.bridge.postMessage({request: "GPS"});
+            });
+            document.getElementById("title").addEventListener("click", function(event) {
+                window.webkit.messageHandlers.bridge.postMessage({request: "Title", title:"这是修改标题"});
             });
 
             window.callback = function(source, result) {
@@ -25,18 +28,13 @@
                         break;
                 }
             };
-//            var button = document.getElementById("buttonQR");
-//            button.addEventListener('click', function() {
-//                //window.location.href = "hackathon://test";
-//                alert(1234);
-//                alert(window.webkit);
-//            });
         });
     </script>
 </head>
 <body>
-<button id="buttonQR" style="display:block; height: 100px; width: 100%">QR</button>
-<button id="buttonGPS" style="display:block; height: 100px; width: 100%">GPS</button>
+<button id="buttonQR" style="display:block; height: 80px; width: 100%">QR</button>
+<button id="buttonGPS" style="display:block; height: 80px; width: 100%">GPS</button>
+<button id="title" style="display:block; height: 80px; width: 100%">Title</button>
 
 </body>
 </html>
