@@ -17,6 +17,11 @@ use Illuminate\Http\Response;
 class CommonController extends Controller{
 
     public function getQrcode(Request $req) {
+        return response("/common/qrCodeImage");
+    }
+
+
+    public function getQrcodeImage(Request $req) {
         $qrCode = new QrCode();
         $qrCode
             ->setText("签到")
@@ -32,5 +37,4 @@ class CommonController extends Controller{
         $response->header('content-type', 'image/png');
         return $response;
     }
-
 }
