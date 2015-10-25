@@ -25,7 +25,7 @@ class CommonController extends Controller{
     }
 
 
-    public function getQrcodeImage(Request $req) {
+    public function getQrCodeImage(Request $req) {
         $qrCode = new QrCode();
         $qrCode
             ->setText("签到")
