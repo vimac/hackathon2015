@@ -28,7 +28,7 @@ class CommonController extends Controller{
     public function getQr(Request $req) {
         $qrCode = new QrCode();
         $qrCode
-            ->setText("签到")
+            ->setText("http://10.0.20.55:8001/index/wel#/sys/activities/one")
             ->setSize(300)
             ->setPadding(10)
             ->setErrorCorrection('high')
