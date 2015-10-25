@@ -15,12 +15,11 @@ use Illuminate\Support\Facades\Redirect;
 class IndexController extends Controller
 {
 
-//    public function getIndex() {
-//        return view('welcome');
-//    }
-
     public function getWel() {
         return view('index');
+    }
+    public function getShare() {
+        return view('share');
     }
 
 
