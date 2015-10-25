@@ -17,7 +17,11 @@ use Illuminate\Http\Response;
 class CommonController extends Controller{
 
     public function getQrcode(Request $req) {
-        return response("/common/qrCodeImage");
+        return response()->json([
+            'code' => 0,
+            'msg' => 'ok',
+            'data' => "/common/qrCodeImage"
+        ]);
     }
 
 
