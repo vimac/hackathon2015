@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Model\UserActivity;
 use App\Model\UserLocation;
 use Illuminate\Http\Request;
 
@@ -24,9 +25,9 @@ class LocationController extends Controller {
             $userId = $user->id;
             $longitude = $req->get('longitude');
             $latitude = $req->get('latitude');
-            $activityId = $req->get('activity_id');
+            $activityId = 1 ;
 
-            $userLocation = UserLocation::where(['user_id' => $userId, 'activity_id' => $activityId])->first();
+            $userLocation = UserLocation::where(['user_id' => $userId])->first();
             if ($userLocation) {
                 $userLocation->latitude = $latitude;
                 $userLocation->longitude = $longitude;
@@ -63,6 +64,7 @@ class LocationController extends Controller {
      */
     public function getList(Request $req) {
         $activityId = $req->get('activity_id');
+
         $userLocation = UserLocation::where([ 'activity_id' => $activityId])->get()->toArray();
         if ($userLocation) {
             return response()->json([
