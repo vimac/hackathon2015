@@ -12,12 +12,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="">
-    <link rel="stylesheet" type="text/css" href="//liwenqiang.oss-cn-hangzhou.aliyuncs.com/app.css">
+    <link rel="stylesheet" type="text/css" href="//liwenqiang.oss-cn-hangzhou.aliyuncs.com/hackathon2015.css">
 </head>
 <body>
 <div id="AppContainer"></div>
 </body>
 <script src="//liwenqiang.oss-cn-hangzhou.aliyuncs.com/lib.min.js"></script>
-<script src="//liwenqiang.oss-cn-hangzhou.aliyuncs.com/app.min.js"></script>
+<script src="//liwenqiang.oss-cn-hangzhou.aliyuncs.com/hackathon2015.min.js"></script>
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=RgzahNNAKtYnn1HW4xNTrhBO"></script>
 </html>
