@@ -34,7 +34,6 @@ class CommonController extends Controller{
             ->setErrorCorrection('high')
             ->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0))
             ->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0))
-            ->setLabel('签到')
             ->setLabelFontSize(16);
 
         $response = new Response($qrCode->get(), 200);
