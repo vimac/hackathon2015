@@ -19,13 +19,13 @@ class CommonController extends Controller{
     public function getQrcode(Request $req) {
         $qrCode = new QrCode();
         $qrCode
-            ->setText("Life is too short to be generating QR codes")
+            ->setText("签到")
             ->setSize(300)
             ->setPadding(10)
             ->setErrorCorrection('high')
             ->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0))
             ->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0))
-            ->setLabel('My label')
+            ->setLabel('签到')
             ->setLabelFontSize(16);
 
         $response = new Response($qrCode->get(), 200);

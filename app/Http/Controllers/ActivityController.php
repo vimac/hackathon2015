@@ -7,6 +7,7 @@ use App\Model\UserActivity;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class ActivityController extends Controller
 {
@@ -116,7 +117,7 @@ class ActivityController extends Controller
     /**
      * 签到
      */
-    public function postActivitysign(Request $req) {
+    public function getActivitysign(Request $req) {
         $user = $this->fetchUserData();
         $activityId = $req->get('activity_id');
         $phone = $req->get('phone');
@@ -150,12 +151,7 @@ class ActivityController extends Controller
         $userActivity = UserActivity::where(['user_id' => $userId, 'activity_id' => $activityId])->first();
         $userActivity->status = 1;
         $userActivity = $userActivity->save();
-
-        return response()->json([
-            'code' => 0,
-            'msg' => 'ok',
-            'data' => $userActivity
-        ]);
+        return Redirect::to('index/wel');
 
     }
 
