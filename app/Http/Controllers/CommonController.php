@@ -20,12 +20,12 @@ class CommonController extends Controller{
         return response()->json([
             'code' => 0,
             'msg' => 'ok',
-            'data' => "/common/qrCodeImage"
+            'data' => "/common/qr"
         ]);
     }
 
 
-    public function getQrcodeImage(Request $req) {
+    public function getQr(Request $req) {
         $qrCode = new QrCode();
         $qrCode
             ->setText("签到")
